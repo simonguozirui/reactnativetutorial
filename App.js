@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
-import { AppRegistry, Image } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 
-export default class Bananas extends Component {
+export default class LotsOfStyles extends Component {
   render() {
-    let pic = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-    };
     return (
-      <Image source={pic} style={{width: 193, height: 110}}/>
+      <View>
+        <Text style={styles.red}>just red</Text>
+        <Text style={styles.bigblue}>just bigblue</Text>
+        <Text style={[styles.bigblue, styles.red]}>bigblue, then red</Text>
+        <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
+      </View>
     );
   }
 }
 
+const styles = StyleSheet.create({
+  bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  red: {
+    color: 'red',
+  },
+});
+
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => Bananas);
+AppRegistry.registerComponent('AwesomeProject', () => LotsOfStyles);
